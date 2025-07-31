@@ -23,6 +23,14 @@ body {
   justify-content: center;
 }
 
+.NamePics {
+  width: 5rem;
+  height: 5rem;
+  margin-left: 0.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 
 .container {
   display: flex;
@@ -64,8 +72,29 @@ section:hover {
 /* header */
 .profile-header {
   display: flex;
+  align-items: flex-start;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;     
+  align-items: center;          
+}
+
+.info-text {
+  max-width: 40%;
+}
+
+.about-section {
+  max-width: 55%;
+}
+
+.info-text h1 {
+  display: flex;
   align-items: center;
 }
+
 #profile-pic {
   width: 8rem;
   height: 8rem;
@@ -74,19 +103,26 @@ section:hover {
   border: 4px solid var(--accent);
   box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent-alt);
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  margin: auto;
 }
+
 #profile-pic:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent-alt);
 }
+
 .profile-info {
   margin-left: 1rem;
 }
+
 .profile-info h1 {
   margin: 0;
   font-size: 2rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;   
 }
+
 .subtitle {
   margin-top: 0.5rem;
   color: var(--accent);
