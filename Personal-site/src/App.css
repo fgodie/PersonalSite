@@ -9,165 +9,31 @@
   --transition-speed: 0.3s;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+body{
   background: linear-gradient(135deg, #11111d 0%, var(--bg-color) 100%);
-  color: var(--text-color);
-  font-family: var(--font-family);
-  background-image:
+    background-image:
     repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px),
     repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px);
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.NamePics {
-  width: 5rem;
-  height: 5rem;
-  margin-left: 0.5rem;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 1280px;     
-  margin: auto ;     
-  padding: 2rem;
-}
-.sections-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-@media (min-width: 768px) {
-  .sections-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* card effect */
-header,
-section {
-  background: var(--card-bg);
-  border: 1px solid rgba(0, 255, 255, 0.2);
-  border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 124, 0.3);
-  padding: 2rem;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-header:hover,
-section:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent-alt);
-}
-
-/* header */
-.profile-header {
-  display: flex;
-  align-items: flex-start;
-}
-
-.profile-info {
-  display: flex;
-  justify-content: space-between;
-  flex: 1;     
-  align-items: center;          
-}
-
-.info-text {
-  max-width: 40%;
-}
-
-.about-section {
-  max-width: 55%;
-}
-
-.info-text h1 {
-  display: flex;
-  align-items: center;
-}
-
-#profile-pic {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--accent);
-  box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent-alt);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  margin: auto;
-}
-
-#profile-pic:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent-alt);
-}
-
-.profile-info {
-  margin-left: 1rem;
-}
-
-.profile-info h1 {
   margin: 0;
-  font-size: 2rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;   
-}
-
-.subtitle {
-  margin-top: 0.5rem;
-  color: var(--accent);
-}
-
-/* list pattern */
-section h2,
-header h2 {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-section h2 span {
-  margin-right: 0.5rem;
-}
-
-/*list pattern */
-.skills-list,
-.contact-list {
-  list-style: none;
   padding: 0;
-  margin: 0;
-}
-.skills-list li,
-.contact-list li {
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-}
-.skills-list li::before {
-  content: '';
-  display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
-  background: var(--accent);
-  border-radius: 50%;
-  margin-right: 0.75rem;
+  color: var(--text-color);
 }
 
-/* 教育信息 */
-.education-info .school {
-  font-weight: bold;
+.navbar{
+  display: flex;
+  top: 0;
+  width: 100%;
+
 }
-.education-info .small {
-  font-size: 0.875rem;
-  color: rgba(224, 224, 224, 0.7);
+
+.navbar a{
+  display: block;
+  padding:  10px 20px;
+  text-decoration: none;
+}
+
+.navbar li{
+  float:  right;
 }

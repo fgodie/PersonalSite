@@ -1,7 +1,6 @@
 export default function sideNavbar() {
 
     return(
-        <div className="container">
             <nav className="sidenav">
                 <ul>
                     <li>
@@ -23,7 +22,7 @@ export default function sideNavbar() {
 
                 </ul>
                 </nav>
-            </div>
+
     )
 
 }
