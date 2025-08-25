@@ -5,35 +5,319 @@
   --accent: #00ffff;
   --accent-alt: #ff007c;
   --text-color: #e0e0e0;
-  --font-family: 'Roboto Mono', monospace;
+  --font-family: "Roboto Mono", monospace;
   --transition-speed: 0.3s;
 }
 
-body{
+/* 背景 & 允许滚动；为 fixed 导航让出空间 */
+body {
   background: linear-gradient(135deg, #11111d 0%, var(--bg-color) 100%);
-    background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px),
-    repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px);
-  display: flex;
-  align-items: center;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(255, 255, 255, 0.02) 20px,
+      rgba(255, 255, 255, 0.02) 21px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 20px,
+      rgba(255, 255, 255, 0.02) 20px,
+      rgba(255, 255, 255, 0.02) 21px
+    );
   margin: 0;
-  padding: 0;
+  padding: 80px 0 0; /* ✅ 让出 fixed 顶栏的高度 */
   color: var(--text-color);
+  overflow-y: auto; /* ✅ 允许滚动 */
 }
 
-.navbar{
+/* 顶部导航（固定） */
+.navbar {
   display: flex;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-
+  margin: 0;
+  padding: 10px 16px;
+  z-index: 1000;
+  justify-content: center;
+  background: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+  backdrop-filter: blur(10px);
 }
 
-.navbar a{
+.navbar li a {
+  padding: 10px 20px;
+  font-size: large;
+  font-family: cursive;
+}
+.navbar a:hover {
+  background-color: grey;
+  border: grey 2px solid;
+  border-radius: 15px 15px 15px 15px;
+}
+.navbar li {
+  display: inline;
+  float: left;
+  border-radius: 8px;
+}
+
+.navlogo {
+  width: 70px;
+  height: 70px;
+  display: inline;
+  margin-right: 50%;
+}
+
+/* ========== Profile Section（改为流式，不再 fixed） ========== */
+.profile-pics {
+  max-width: 1000px;
+  margin: 110px auto 50px auto;   /* 给导航留出距离 */
+  padding: 0 16px;
+  text-align: center;
+}
+
+.profilepic {
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--accent);
+  border-radius: 100px;
   display: block;
-  padding:  10px 20px;
+  margin: 0 auto 30px;       /* 居中 + 下方间距 */
+  box-shadow: 0 0 10px var(--accent);
+  transition: transform var(--transition-speed);
+}
+.profilepic:hover {
+  transform: scale(1.1);
+}
+
+.profile-pics h1 {
+  margin: 12px 0 10px;
+  font-family: "Courier New", Courier, monospace, Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+  font-weight: 1000;
+}
+
+.profile-pics p {
+  margin: 0 auto 24px;
+  font-family: "Courier New", Courier, monospace, Arial, Helvetica, sans-serif;
+  font-size: large;
+  max-width: 1000px;
+  line-height: 1.6;
+}
+
+/* 渐变文字 */
+.gradient-text {
+  font-size: xx-large;
+  font-weight: 1000;
+  background: linear-gradient(90deg, #ff007c, #ff7b00, #a600ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: 15px;
+  margin-left: 20px;
+}
+
+/* Skills（保持 fixed 视觉） */
+.exampleSkills {
+  text-align: center;
+  margin-top: 50px;
+  font-family: "Courier New", Courier, monospace, Arial, Helvetica, sans-serif;
+  font-size: x-large;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.exampleSkills li {
+  display: inline-block;
+  margin: 0 15px;
+}
+.skillsLogo {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* 给 Skills 区块补高度 */
+.exampleSkills {
+  position: relative;
+}
+.exampleSkills::after {
+  content: "";
+  display: block;
+  height: 260px; /* 需要多/少就调这里 */
+}
+
+.projectPreview {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  max-width: 1000px;
+  padding: 0 16px;
+  text-align: center;     
+  font-family: "Courier New", Courier, monospace, Arial, Helvetica, sans-serif;
+  font-size: x-large;
+}
+
+.projectPreview h3{
+  font-size: xx-large;
+  
+}
+
+
+.card img {
+  width: 100px;
+  height: 100px;
+}
+
+
+.project-cards {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.card {
+  background: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 320px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  background: #333;
+  color: white;
+}
+
+.card-content h3 {
+  margin: 0 0 10px;
+  font-size: large;
+}
+
+.card-content a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.card-content a:hover {
+  color: #ff7043;
+}
+
+
+/* 可选：小屏适配 */
+@media (max-width: 768px) {
+  body {
+    padding-top: 72px;
+  }
+}
+
+.job-Exp h3{
+  font-size: xx-large;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Courier New", Courier, monospace, Arial, Helvetica, sans-serif;
+  left: 0;
+  right: 0;
+  position: relative;
+  top: 100px;
+  
+}
+
+.job-list{
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  padding: 20px 16px;
+  font-family: "Courier New", Courier, monospace, Arial, Helvetica, sans-serif;
+  font-size: large;
+  position: relative;
+  top: 70px;
+}
+
+.job-icons{
+  width: 20px;
+  height: 20px;
+}
+
+.ContactFooter {
+  margin-top: 2rem;
+  padding: 1rem 4rem;
+  background-color: #111;  /* 深色背景 */
+  color: #fff;
+  text-align: left;        /* 左对齐 */
+  
+}
+
+.ContactFooter h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.contact-description {
+  max-width: 650px;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: #ccc;
+}
+
+.contact-email {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-email a {
   text-decoration: none;
 }
 
-.navbar li{
-  float:  right;
+.contact-email a:hover {
+  text-decoration: underline;
+}
+
+.contact-icons {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 1.3rem;
+}
+
+.contact-icons a {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: #61dafb; /* 悬停变蓝 */
+}
+
+
+.footer-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* 让图标变白，适合深色背景 */
+  transition: filter 0.3s ease;
+}
+
+.footer-icon:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 0 5px #61dafb);
 }
